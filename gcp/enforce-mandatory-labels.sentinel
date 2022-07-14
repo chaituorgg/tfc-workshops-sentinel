@@ -22,7 +22,7 @@ allGCEInstances = plan.find_resources("google_compute_instance")
 violatingGCEInstances = plan.filter_attribute_not_contains_list(allGCEInstances,
                         "labels", mandatory_labels, true)
 
-# Main rule
+# Mains rule
 main = rule {
   length(violatingGCEInstances["messages"]) is 0
 }
